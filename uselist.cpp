@@ -34,9 +34,8 @@ int main()
 	cout << head->getData() << endl; 
 	delete head; 
 
-	// 
+
 	// character list manipulation 
-	// 
 	// allocating head node 
 	node<char> *charHead = new node<char>; 
 	node<char> *current = charHead; 

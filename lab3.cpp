@@ -1,8 +1,6 @@
 // Testing the implementation of templated list collection 
 // Alex Donahue
 // 9/12/2026
-
-
 #include <iostream>
 #include "list.h" // template definition 
 using namespace std; 

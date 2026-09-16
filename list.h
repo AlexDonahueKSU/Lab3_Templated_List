@@ -12,6 +12,7 @@ using namespace std;
 template <typename T> 
 class node
 { 
+    //Public Variables
 	public: 
 	node(): next_(nullptr) {} 
 	
@@ -29,7 +30,7 @@ class node
 	// or can be defined outside 
 	node* getNext() const; 
 	void setNext(node *const); 
-
+    //Private Variables
 	private: 
 	T data_; 
 	node *next_; 
@@ -48,7 +49,8 @@ void node<T>::setNext(node<T> *const next)
 	next_ = next; 
 } 
 
-
+// Collection Start
+// ||||||||||||||||
 template <typename T>
 class Collection
 {
