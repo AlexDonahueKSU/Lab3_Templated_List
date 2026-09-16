@@ -1,4 +1,4 @@
-// testing the implementation of templated list collection 
+// Testing the implementation of templated list collection 
 // Alex Donahue
 // 9/12/2026
 

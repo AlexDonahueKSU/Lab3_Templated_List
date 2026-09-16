@@ -1,4 +1,4 @@
-// node class tempate used to contruct lists 
+// Node class tempate used to construct lists 
 // Alex Donahue
 // 9/12/26 
 #include <iostream>
