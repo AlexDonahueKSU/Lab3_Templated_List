@@ -17,7 +17,7 @@ class node
 	node(): next_(nullptr) {} 
 	
 	// functions can be inlined 
-	T getData()const
+	const T& getData()const
 	{
 		return data_;
 	} 
@@ -57,14 +57,39 @@ class Collection
 public:
     Collection() : head_(nullptr), tail_(nullptr) {}
 
+    // Deep-copy constructor
+    Collection(const Collection& other)
+        : head_(nullptr), tail_(nullptr)
+    {
+        for (node<T>* current = other.head_;
+             current != nullptr;
+             current = current->getNext())
+        {
+            addItem(current->getData());
+        }
+    }
+
+    // Deep-copy assignment operator
+    Collection& operator=(const Collection& other)
+    {
+        if (this != &other)
+        {
+            clear();
+
+            for (node<T>* current = other.head_;
+                 current != nullptr;
+                 current = current->getNext())
+            {
+                addItem(current->getData());
+            }
+        }
+
+        return *this;
+    }
+    // Destructor
     ~Collection()
     {
-        while (head_ != nullptr)
-        {
-            node<T>* oldHead = head_;
-            head_ = head_->getNext();
-            delete oldHead;
-        }
+        clear();
     }
 
     void addItem(const T& item)
@@ -122,7 +147,7 @@ public:
         cout << endl;
     }
 
-    T lastItem()
+    const T& lastItem() const
     {
         if (tail_ == nullptr)
             throw std::out_of_range("Collection is empty");
@@ -131,8 +156,19 @@ public:
     }
 
 private:
+void clear()
+    {
+        while (head_ != nullptr)
+        {
+            node<T>* oldHead = head_;
+            head_ = head_->getNext();
+            delete oldHead;
+        }
+
+        tail_ = nullptr;
+    }
     node<T>* head_;
     node<T>* tail_;
 };
 
-#endif // LIST_H_ 
+#endif; // LIST_H_ 
