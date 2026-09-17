@@ -7,7 +7,7 @@ using namespace std;
 #ifndef LIST_H_ 
 #define LIST_H_ 
 
-// the pointer part of every list is the same 
+// The pointer part of every list is the same 
 // lists differ by data part 
 template <typename T> 
 class node
@@ -48,9 +48,9 @@ void node<T>::setNext(node<T> *const next)
 { 
 	next_ = next; 
 } 
-
+//|||||||||||||||||
 // Collection Start
-// ||||||||||||||||
+//|||||||||||||||||
 template <typename T>
 class Collection
 {
@@ -122,7 +122,7 @@ public:
         cout << endl;
     }
 
-    T& lastItem()
+    T lastItem()
     {
         if (tail_ == nullptr)
             throw std::out_of_range("Collection is empty");
